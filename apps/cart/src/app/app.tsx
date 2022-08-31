@@ -1,11 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
-
 export function App() {
   return (
     <>
-      <NxWelcome title="cart" />
+      <div className="wrapper">
+        <div className="container">
+          <div id="welcome">
+            <h1>
+              <span> Hello there, </span>
+              Welcome CART APP!!!! 👋
+            </h1>
+          </div>
+        </div>
+      </div>
       <div />
     </>
   );

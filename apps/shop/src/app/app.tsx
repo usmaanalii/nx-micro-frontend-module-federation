@@ -1,14 +1,24 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import { DataContext } from '@mod-fed/shared/data-context';
+import { useContext } from 'react';
 
-export function App() {
+export function Shop() {
+  const { counter, setCounter } = useContext(DataContext);
+
   return (
-    <>
-      <NxWelcome title="shop" />
-      <div />
-    </>
+    <div className="wrapper">
+      <div className="container">
+        <div id="welcome">
+          <h1>
+            <span> Hello there, </span>
+            Welcome "SHOPPING APP"
+          </h1>
+        </div>
+        <button onClick={() => setCounter(counter + 1)}>
+          counter {counter}
+        </button>{' '}
+      </div>
+    </div>
   );
 }
 
-export default App;
+export default Shop;
