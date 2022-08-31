@@ -8,7 +8,9 @@
     "cart-e2e": "apps/cart-e2e",
     "host": "apps/host",
     "host-e2e": "apps/host-e2e",
+    "shared-data-context": "libs/shared/data-context",
     "shop": "apps/shop",
-    "shop-e2e": "apps/shop-e2e"
+    "shop-e2e": "apps/shop-e2e",
+    "ui": "libs/ui"
   }
 }

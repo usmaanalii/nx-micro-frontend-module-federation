@@ -1,3 +1,6 @@
+import { DataContext } from '@mod-fed/shared/data-context';
+import { useContext } from 'react';
+
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  This is a starter component and can be deleted.
@@ -6,6 +9,10 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
 export function NxWelcome({ title }: { title: string }) {
+  const { counter, setCounter } = useContext(DataContext);
+
+  console.log('counter', counter);
+
   return (
     <>
       <style
@@ -410,6 +417,11 @@ export function NxWelcome({ title }: { title: string }) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
+
+    .user-context-div {
+      margin: 20px 0;
+      color: red;
+    }
           `,
         }}
       />
@@ -421,7 +433,9 @@ export function NxWelcome({ title }: { title: string }) {
               Welcome {title} 👋
             </h1>
           </div>
-
+          <button onClick={() => setCounter(counter + 1)}>
+            counter {counter}
+          </button>{' '}
           <div id="hero" className="rounded">
             <div className="text-container">
               <h2>
@@ -453,7 +467,6 @@ export function NxWelcome({ title }: { title: string }) {
               </svg>
             </div>
           </div>
-
           <div id="middle-content">
             <div id="learning-materials" className="rounded shadow">
               <h2>Learning materials</h2>
@@ -720,7 +733,6 @@ export function NxWelcome({ title }: { title: string }) {
               </a>
             </div>
           </div>
-
           <div id="commands" className="rounded shadow">
             <h2>Next steps</h2>
             <p>Here are some things you can do with Nx:</p>
@@ -794,7 +806,6 @@ export function NxWelcome({ title }: { title: string }) {
               </pre>
             </details>
           </div>
-
           <p id="love">
             Carefully crafted with
             <svg
