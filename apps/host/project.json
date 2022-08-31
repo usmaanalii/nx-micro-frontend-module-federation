@@ -1,5 +1,4 @@
 {
-  "implicitDependencies": ["shop", "cart"],
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/host/src",
   "projectType": "application",
