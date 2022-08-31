@@ -11,7 +11,7 @@ const coreLibraries = new Set([
  **/
 const moduleFederationConfig = {
   name: 'host',
-  remotes: ['shop', 'cart', 'about'],
+  remotes: ['shop', 'cart'],
   shared: (libraryName, defaultConfig) => {
     if (coreLibraries.has(libraryName)) {
       return defaultConfig;

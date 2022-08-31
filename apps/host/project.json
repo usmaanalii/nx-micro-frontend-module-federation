@@ -19,7 +19,8 @@
         "assets": ["apps/host/src/favicon.ico", "apps/host/src/assets"],
         "styles": ["apps/host/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "apps/host/webpack.config.js"
+        "webpackConfig": "apps/host/webpack.config.js",
+        "postcssConfig": "apps/host/postcss.config.js"
       },
       "configurations": {
         "development": {

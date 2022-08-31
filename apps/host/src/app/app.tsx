@@ -11,45 +11,65 @@ const Shop = React.lazy(() => import('shop/Module'));
 const Cart = React.lazy(() => import('cart/Module'));
 
 export function Host({ title }: { title: string }) {
-  const { counter, setCounter } = useContext(DataContext);
+  const { user, updateUser } = useContext(DataContext);
 
   const [accountBalance, setAccountBalance] = useState(1000);
 
   return (
-    <div className="wrapper">
-      <div className="container">
-        <div id="welcome">
-          <h1>
+    <div className="border-solid border-purple-500 border-2 p-3">
+      <div>
+        <div>
+          <h1 className="font-bold mb-3">
             <span> Hello there, </span>
-            Welcome {title} 👋
+            this is the {title} 👋
           </h1>
         </div>
-        <button onClick={() => setCounter(counter + 1)}>
-          counter {counter}
-        </button>{' '}
-        <Header
-          accountBalance={accountBalance}
-          setAccountBalance={setAccountBalance}
-        />
-        <div className="counter-div">
-          <div>
-            Account balance:{' '}
-            {new Intl.NumberFormat('en-GB', {
-              style: 'currency',
-              currency: 'GBP',
-            }).format(accountBalance)}
+
+        <div className="mb-3">
+          This is some shared state from a{' '}
+          <span className="font-semibold">context</span> which represents the
+          current user:{' '}
+          <span className="font-bold text-yellow-600">{user}</span>
+        </div>
+
+        <button
+          className="border-black border-2 p-3 mb-3 cursor-pointer hover:bg-teal-200"
+          onClick={() => updateUser()}
+        >
+          Click to update the user, and view the{' '}
+          <span className="font-bold-">shop</span> application, which should
+          have the same updated user.
+        </button>
+
+        <div>
+          <div className="mb-3">
+            This is some shared state created from the{' '}
+            <span className="font-semibold">useState</span> hook:{'  '}
+            <span className="text-green-700 font-bold">
+              {new Intl.NumberFormat('en-GB', {
+                style: 'currency',
+                currency: 'GBP',
+              }).format(accountBalance)}
+            </span>
           </div>
 
           <div>
             <button
-              className="counter-button"
+              className="border-black border-2 p-3 mb-3 cursor-pointer hover:bg-teal-200"
               onClick={() => setAccountBalance(0)}
             >
-              Clear account balance
+              This button will clear the state from the{' '}
+              <span className="font-semibold">useState</span> hook and update
+              the state in the shared component
             </button>
           </div>
         </div>
       </div>
+
+      <Header
+        accountBalance={accountBalance}
+        setAccountBalance={setAccountBalance}
+      />
     </div>
   );
 }
@@ -58,26 +78,29 @@ export function App() {
   return (
     <DataProvider>
       <React.Suspense fallback={null}>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+        <div className="p-6">
+          <ul className="flex justify-between w-1/6 my-2 border-solid border-2 p-2 border-red-300">
+            <li className="underline hover:text-red-500">
+              <Link to="/">Home</Link>
+            </li>
 
-          <li>
-            <Link to="/shop">Shop</Link>
-          </li>
+            <li className="underline hover:text-red-500">
+              <Link to="/shop">Shop</Link>
+            </li>
 
-          <li>
-            <Link to="/cart">Cart</Link>
-          </li>
-        </ul>
-        <Routes>
-          <Route path="/" element={<Host title="HOST APP!!!!" />} />
+            <li className="underline hover:text-red-500">
+              <Link to="/cart">Cart</Link>
+            </li>
+          </ul>
 
-          <Route path="/shop" element={<Shop />} />
+          <Routes>
+            <Route path="/" element={<Host title="HOST APP!!!!" />} />
 
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+            <Route path="/shop" element={<Shop />} />
+
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </div>
       </React.Suspense>
     </DataProvider>
   );
