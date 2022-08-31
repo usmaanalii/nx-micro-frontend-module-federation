@@ -20,8 +20,8 @@ export function Host({ title }: { title: string }) {
       <div>
         <div>
           <h1 className="font-bold mb-3">
-            <span> Hello there, </span>
-            this is the {title} 👋
+            This is the <span className="text-blue-600">{title}</span>{' '}
+            application
           </h1>
         </div>
 
@@ -43,7 +43,7 @@ export function Host({ title }: { title: string }) {
 
         <div>
           <div className="mb-3">
-            This is some shared state created from the{' '}
+            This is some shared state created from a{' '}
             <span className="font-semibold">useState</span> hook:{'  '}
             <span className="text-green-700 font-bold">
               {new Intl.NumberFormat('en-GB', {
@@ -58,7 +58,7 @@ export function Host({ title }: { title: string }) {
               className="border-black border-2 p-3 mb-3 cursor-pointer hover:bg-teal-200"
               onClick={() => setAccountBalance(0)}
             >
-              This button will clear the state from the{' '}
+              Click to clear the state from the{' '}
               <span className="font-semibold">useState</span> hook and update
               the state in the shared component
             </button>
@@ -81,7 +81,7 @@ export function App() {
         <div className="p-6">
           <ul className="flex justify-between w-1/6 my-2 border-solid border-2 p-2 border-red-300">
             <li className="underline hover:text-red-500">
-              <Link to="/">Home</Link>
+              <Link to="/">Host</Link>
             </li>
 
             <li className="underline hover:text-red-500">
@@ -94,7 +94,7 @@ export function App() {
           </ul>
 
           <Routes>
-            <Route path="/" element={<Host title="HOST APP!!!!" />} />
+            <Route path="/" element={<Host title="HOST" />} />
 
             <Route path="/shop" element={<Shop />} />
 

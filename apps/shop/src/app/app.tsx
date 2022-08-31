@@ -9,8 +9,8 @@ export function Shop() {
       <div>
         <div className="font-bold mb-3">
           <h1>
-            <span> Hello there, </span>
-            Welcome "SHOPPING APP"
+            This is the <span className="text-blue-600">Shopping</span>{' '}
+            application
           </h1>
         </div>
 
@@ -26,7 +26,7 @@ export function Shop() {
           onClick={() => updateUser()}
         >
           Click to update the user, and view the{' '}
-          <span className="font-bold-">shop</span> application, which should
+          <span className="font-bold-">host</span> application, which should
           have the same updated user.
         </button>
       </div>

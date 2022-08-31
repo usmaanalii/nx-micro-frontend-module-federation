@@ -1,12 +1,14 @@
 export function App() {
   return (
     <>
-      <div className="wrapper">
-        <div className="container">
-          <div id="welcome">
+      <div>
+        <div>
+          <div>
             <h1>
-              <span> Hello there, </span>
-              Welcome CART APP!!!! 👋
+              <h1 className="font-bold">
+                This is the <span className="text-blue-600">Cart</span>{' '}
+                application
+              </h1>
             </h1>
           </div>
         </div>
